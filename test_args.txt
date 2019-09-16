@@ -1,0 +1,12 @@
+
+normal quadratic:
+./computor.py "3*x^2 + 4 + 24x^1 = 4x^1"
+
+single quadratic:
+./computor.py "1 + 2X^1 + X^2 = 0"
+
+linear equation:
+./computor.py "5 + 4 * X + X^2 = X^2"
+
+clean imaginary:
+./computor.py "X^2 + 4X + 5 = 0"
