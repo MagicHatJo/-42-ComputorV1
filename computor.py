@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 import sys
 
@@ -195,7 +195,7 @@ def solve_quadratic(coeff):
 
         #get minus answer
         solution_minus = top / bot
-        print("x = " + str(solution_plus))
+        print("x = " + str(solution_minus))
         print('')
         print("Solutions:")
         print(solution_plus)
