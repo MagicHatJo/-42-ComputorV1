@@ -109,19 +109,22 @@ def solve_linear(coeff):
     #print initial state
     print_poly(coeff, right)
 
-    if coeff[0] is not 0:
+    if coeff[0] != 0.0:
         right[0] = 0 - coeff[0]
         coeff[0] = 0
         print_poly(coeff, right)
 
-    if coeff[1] is not 0:
+    if coeff[1] != 0.0:
         right[0] = right[0] / coeff[1]
         coeff[1] = 1
         print_poly(coeff, right)
-    
-    print('')
-    print("Solution:")
-    print(right[0])
+    elif right[0] != coeff[1]:
+        print("Solution:")
+        print("No Valid Solutions")
+    else:
+        print('')
+        print("Solution:")
+        print(right[0])
 
 def solve_quadratic(coeff):
     discriminant = coeff[1] ** 2 - 4 * coeff[2] * coeff[0]
@@ -299,13 +302,17 @@ def main():
     right = parser(input[1])
 
     print_poly(left, right)
-    reduced = reduction(left, right)
-
-    print("Polynomial degree: " + (str(2) if left[2] else str(1) if left[1] else str(0)))
-
-    if reduced[2] is 0:
-        solve_linear(reduced)
+    
+    if left == right:
+        print("Solution:\nAll real numbers")
     else:
-        solve_quadratic(reduced)
+        reduced = reduction(left, right)
+        degree = 2 if left[2] else 1 if left[1] else 0
+        print("Polynomial degree: " + str(degree))
+
+        if degree is 2:
+            solve_quadratic(reduced)
+        else:
+            solve_linear(reduced)
 
 main()
