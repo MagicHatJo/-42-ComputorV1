@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
 
@@ -33,16 +33,16 @@ def parser(input):
             raise Exception("Polynomial degree out of range")
         if ('X' in arg and '^' in arg):#handle poly
             if (arg.split('X')[0] is not ''):
-                output[int(arg[-1])] = output[int(arg[-1])] + int(arg.split('X')[0])
+                output[int(arg[-1])] = output[int(arg[-1])] + float(arg.split('X')[0])
             else:
                 output[int(arg[-1])] = output[int(arg[-1])] + 1
         elif ('X' in arg):#handle linear
             if (arg.split('X')[0] is not ''):
-                output[1] = output[1] + int(arg.split('X')[0])
+                output[1] = output[1] + float(arg.split('X')[0])
             else:
                 output[1] = output[1] + 1
         else:#handle constants
-            output[0] = output[0] + int(arg)
+            output[0] = output[0] + float(arg)
     return output
 
 def print_poly(left, right):
